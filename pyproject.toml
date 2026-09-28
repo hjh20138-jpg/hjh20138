@@ -23,3 +23,6 @@ myapp = "myapp:main"
 [build-system]
 requires = ["uv_build>=0.12.18,<0.13.0"]
 build-backend = "uv_build"
+
+[tool.vercel]
+entrypoint = "src.myapp.main:app"
