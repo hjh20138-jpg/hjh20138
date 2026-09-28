@@ -1,0 +1,25 @@
+[project]
+name = "myapp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "hjh20138-jpg", email = "hjh20138@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "email-validator>=2.3.0",
+    "fastapi>=0.141.1",
+    "google-genai>=2.25.0",
+    "psycopg[binary]>=3.3.6",
+    "python-dotenv>=1.2.3",
+    "redis>=8.1.0",
+    "uvicorn[standard]>=0.53.0",
+]
+
+[project.scripts]
+myapp = "myapp:main"
+
+[build-system]
+requires = ["uv_build>=0.12.18,<0.13.0"]
+build-backend = "uv_build"
