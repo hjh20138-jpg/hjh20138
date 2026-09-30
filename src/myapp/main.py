@@ -1,13 +1,25 @@
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
 
 from myapp.inquiries import router as inquiries_router
+from myapp.reservations import router as reservations_router
 
 load_dotenv()
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "https://www.abeliophyllum.art",
+        "http://localhost:3000",
+    ],
+    allow_methods=["GET", "POST", "OPTIONS"],
+    allow_headers=["Content-Type"],
+)
 app.include_router(inquiries_router)
+app.include_router(reservations_router)
 
 ITEMS = {
     1: {"id": 1, "name": "apple", "price": 3000},
